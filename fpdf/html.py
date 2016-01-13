@@ -198,13 +198,13 @@ class HTML2FPDF(HTMLParser):
             self.pdf.ln(3)
         if tag=='ul':
             self.indent+=1
-            self.bullet.append('\x95')
+            self.bullet.append(u'\u2022'')
         if tag=='ol':
             self.indent+=1
             self.bullet.append(0)
         if tag=='li':
             self.pdf.ln(self.h+2)
-            self.pdf.set_text_color(190,0,0)
+            #self.pdf.set_text_color(190,0,0)
             bullet = self.bullet[self.indent-1]
             if not isinstance(bullet, basestring):
                 bullet += 1
